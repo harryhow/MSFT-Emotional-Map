@@ -1,7 +1,7 @@
 import processing.data.XML;
 import geomerative.*;
 
-int ARRAY_SIZE = 3; // numbers of file
+int MAP_FILE_NUMBER = 3; // numbers of file
 hexGroup hg1;
 hexGroup hg2;
 hexGroup hg3;
@@ -11,7 +11,7 @@ RPoint[] points1;
 RPoint[] points2;
 RPoint[] points3;
 RPoint[] points4;
-RShape[] s = new RShape[ARRAY_SIZE];;
+RShape[] s;
 RShape polyshp;
 
 String filename = "";
@@ -22,6 +22,8 @@ void setupMap()
 {
   RG.init(this);
   RG.ignoreStyles(true);
+  
+  s = new RShape[MAP_FILE_NUMBER];
   
   for (int i = 0; i < s.length; i++){
       filename = "data/zipcode"+i+".svg";
@@ -90,7 +92,7 @@ void draw() {
 }
 
 void mousePressed () {
-  isMousePressed = true;
+  isMousePressed = !isMousePressed;
   println("question was pressed");
 }
 
